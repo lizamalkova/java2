@@ -1,5 +1,4 @@
 package clientserver.commands;
-
 import java.io.Serializable;
 
 public class TimeoutCommand implements Serializable {

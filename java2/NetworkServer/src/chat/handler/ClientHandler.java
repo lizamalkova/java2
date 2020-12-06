@@ -150,6 +150,21 @@ public class ClientHandler {
         out.writeObject(command);
     }
 
-   
+    private Thread authTimeout() {
+        return new Thread(() -> {
+            try {
+                Thread.sleep(120000);
+            } catch (InterruptedException e) {
+                return;
+            }
+            String errorMessage = "Неактивный пользователь";
+            System.err.println(errorMessage);
+            try {
+                sendMessage(Command.timeoutCommand(errorMessage));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
 }

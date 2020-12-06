@@ -86,5 +86,4 @@ public class Command implements Serializable {
         command.data = new TimeoutCommand(message);
         return command;
     }
-
 }
